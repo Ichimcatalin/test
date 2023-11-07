@@ -200,12 +200,7 @@ public class CheckoutPage extends BasePage {
 
     public void assertTextWhenReady(WebElement locator, String expectedText) {
         wait.until(ExpectedConditions.visibilityOf(locator));
-        try {
-            wait.until(ExpectedConditions.textToBePresentInElement(locator, expectedText));
-        }
-        catch (Exception e){
-            System.out.println("Text not present");
-        }
+        wait.until(ExpectedConditions.textToBePresentInElement(locator, expectedText));
         assertEquals(expectedText, locator.getText());
     }
 
